@@ -13,26 +13,27 @@ import java.util.*;
          System.out.println("Roll No- "+rollno);
          System.out.println("Marks- "+marks+"\n");
              
-     }
-     
- 
-     
-     
+     }   
 }
-
-public class Student_data{
+public class Student_data {
     
         static Scanner sc = new Scanner(System.in);
         static ArrayList<Student> student= new ArrayList<>();
     
-    public static void main(String[] args) {
+    public static void main(String[] args){
         int again=7;
         do{
             // menu for all features to show to do Operations  
-         
+         int choice;
         System.out.println("1.Add Students\n2.Search Student\n3.Delete Student\n4.View All Students\n5.Topper\n6.update Student data\n7.Exit");
         System.out.println("Enter Choice to Proceed");
-        int choice=sc.nextInt();
+        if (sc.hasNextInt()) {
+             choice = sc.nextInt();
+            } else {
+                System.out.println("Invalid input! Please enter a number.");
+                 sc.next(); 
+                 continue;
+                }
         // switch case for calling methods for operations by taking Number of operation from user
 
         switch(choice){
@@ -58,7 +59,8 @@ public class Student_data{
          System.out.println("Thank you...");       
      }
      //student adding Method
-     static void addStudent(){
+     
+        static void addStudent(){
          System.out.println("Enter No.of Students To Add");
          int num=sc.nextInt();
          
@@ -185,14 +187,16 @@ public class Student_data{
     //updating studnet data by name
     static void update() {
     System.out.println("Enter Name to Update:");
-    String name = sc.next();
+    sc.nextLine(); 
+    String name = sc.nextLine();
+
     boolean found = false;
 
     for (Student s : student) {
         if (s.name != null && s.name.equalsIgnoreCase(name)) {
 
             System.out.println("Enter New Name:");
-            s.name = sc.next();
+            s.name = sc.nextLine();
 
             System.out.println("Enter New Marks:");
             s.marks = sc.nextInt();
@@ -202,7 +206,7 @@ public class Student_data{
 
             System.out.println("Student Updated Successfully!");
             found = true;
-            break; 
+            break;
         }
     }
 
