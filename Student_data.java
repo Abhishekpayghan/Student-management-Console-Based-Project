@@ -25,7 +25,9 @@ public class Student_data {
         do{
             // menu for all features to show to do Operations  
          int choice;
+          System.out.println("---------------------------------------------------");
         System.out.println("1.Add Students\n2.Search Student\n3.Delete Student\n4.View All Students\n5.Topper\n6.update Student data\n7.Exit");
+          System.out.println("---------------------------------------------------");
         System.out.println("Enter Choice to Proceed");
         if (sc.hasNextInt()) {
              choice = sc.nextInt();
